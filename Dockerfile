@@ -27,7 +27,7 @@
 #                                 socket instead of using TCP.
 #
 #
-FROM phusion/baseimage:0.9.16
+FROM phusion/baseimage:0.9.19
 MAINTAINER Codey Oxley <codey@yelp.com>
 EXPOSE 8000/tcp
 VOLUME ["/config", \
@@ -75,28 +75,20 @@ RUN locale-gen uk_UA.UTF-8
 # Install Observium prereqs
 RUN apt-get update -q && \
     apt-get install -y --no-install-recommends \
+      libapache2-mod-php7.0 php7.0-cli php7.0-mysql php7.0-mysqli php7.0-gd php7.0-mcrypt \
+php7.0-json php-pear snmp fping python-mysqldb rrdtool subversion whois \
+mtr-tiny ipmitool graphviz imagemagick apache2 \
       at \
       fping \
       git \
       graphviz \
-      graphviz \
       imagemagick \
       ipmitool \
-      libapache2-mod-php5 \
       libvirt-bin \
       mariadb-client \
       mtr-tiny \
       nmap \
-      php5-cli \
-      php5-gd \
-      php5-json \
-      php5-ldap \
-      php5-mcrypt \
-      php5-mysql \
-      php5-snmp \
-      php-pear \
       pwgen \
-      python-mysqldb \
       rrdcached \
       rrdtool \
       snmp \
@@ -114,7 +106,7 @@ RUN mkdir -p \
 
 # === Webserver - Apache + PHP5
 
-RUN php5enmod mcrypt && \
+RUN phpenmod mcrypt && \
     a2enmod rewrite
 
 RUN mkdir /etc/service/apache2
