@@ -35,6 +35,8 @@ fi
 cp -r /tmp/observium/.svn /tmp/observium/* /opt/observium/ && rm -rf /tmp/observium
 [ -f /config/ldap.inc.php ] && cp /config/ldap.inc.php /opt/observium/html/includes/authentication/ldap.inc.php
 
+echo 'TLS_REQCERT     allow' > /etc/ldap/ldap.conf
+
 # == Configuration section
 
 # Queue jobs for later execution while configuration is being sorted out

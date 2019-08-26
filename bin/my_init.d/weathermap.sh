@@ -14,12 +14,13 @@ if [ "$USE_WEATHERMAP" = true ]; then
     # If weathermap isn't in observium htmldir, install it
     if [ ! -d "$WEATHERMAP" ]; then
         cd $HTMLDIR
-        git clone https://github.com/laf/weathermap.git weathermap
+        git clone https://github.com/howardjones/network-weathermap.git weathermap
         chown -hR nobody:users "$WEATHERMAP"
     fi
 
     # Regardless, schedule map-poller.php
     echo "$C" > /etc/cron.d/weathermap
-    restart cron
+    #service cron restart
+    /etc/init.d/cron reload
 
 fi
