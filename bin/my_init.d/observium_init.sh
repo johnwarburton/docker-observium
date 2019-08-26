@@ -10,12 +10,15 @@ community_http() {
 }
 
 professional_svn() {
-    #cd /tmp &&
-    #svn co --non-interactive \
-    #       --username $SVN_USER \
-    #       --password $SVN_PASS \
-    #       $SVN_REPO observium
-    cd /tmp && tar xzf /config/observium-revision-9999.tgz
+    set -x
+    if [ -f /config/observium-svn.tgz ] ; then
+      cd /tmp && tar xzf /config/observium-svn.tgz
+    else 
+      cd /tmp && svn co --non-interactive \
+             --username $SVN_USER \
+             --password $SVN_PASS \
+             $SVN_REPO observium
+    fi
 }
 
 if [[ "$USE_SVN" == "true" && "$SVN_USER" && "$SVN_PASS" && "$SVN_REPO" ]]
@@ -30,6 +33,7 @@ fi
 # first way thought of to avoid dealing with the svn conflict resolution from
 # script.
 cp -r /tmp/observium/.svn /tmp/observium/* /opt/observium/ && rm -rf /tmp/observium
+[ -f /config/ldap.inc.php ] && cp /config/ldap.inc.php /opt/observium/html/includes/authentication/ldap.inc.php
 
 # == Configuration section
 

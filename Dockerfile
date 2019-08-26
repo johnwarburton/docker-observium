@@ -76,7 +76,7 @@ RUN locale-gen uk_UA.UTF-8
 RUN apt-get update -q && \
     apt-get install -y --no-install-recommends \
       libapache2-mod-php7.0 php7.0-cli php7.0-mysql php7.0-mysqli php7.0-gd php7.0-mcrypt \
-php7.0-json php-pear snmp fping python-mysqldb rrdtool subversion whois \
+php7.0-json php-pear php-ldap snmp fping python-mysqldb rrdtool subversion whois \
 mtr-tiny ipmitool graphviz imagemagick apache2 \
       at \
       fping \
