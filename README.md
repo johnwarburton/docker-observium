@@ -1,6 +1,12 @@
 Observium
 =========
 
+Fork of Yelp's docker/observium (2019):
+- php7 for professional edition support (tested on 19.8.10001)
+- base image upgrade to 0.9.19
+- refer to actual php weathermap git project for weathermap (untested)
+- localised tweaks for using tar balls not svn
+
 Dockerized version of Observium with support for external database, both
 communitiy and professional editions (via arbritrary svn source), packages
 to allow native LDAP auth, and easy plugin support by exposing htmldir as a
