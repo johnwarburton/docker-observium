@@ -1,3 +1,5 @@
+# https://docs.observium.org/rrdcached/
+
 # /etc/default file for RRD cache daemon
 
 # Full path to daemon
