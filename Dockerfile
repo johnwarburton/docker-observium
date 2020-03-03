@@ -34,7 +34,7 @@ VOLUME ["/config", \
         "/opt/observium/html", \
         "/opt/observium/logs", \
         "/opt/observium/rrd", \
-        "/var/run/mysqld/mysqld.sock"]
+        "/var/run/mysqld"]
 
 # === phusion/baseimage pre-work
 CMD ["/sbin/my_init"]
